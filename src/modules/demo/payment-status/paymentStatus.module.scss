@@ -1,0 +1,107 @@
+@import "/src/styles/var";
+$green: #4bb543;
+$red: #c53030;
+$yellow: #ea8e37;
+.payment_confirm_page {
+  padding: 3rem 0;
+  min-height: 100vh;
+  // background-image: linear-gradient(90deg, var(--primary), var(--secondary));
+  background-color: #f7f7f7;
+  @include flexCenter;
+  .card {
+    @include card;
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 #8f8f8f;
+    border: 2px dashed #8f8f8f;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 550px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+  .title {
+    padding: 1rem 0 1rem;
+    h4 {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+  .content {
+    border-top: 1px solid #dfdfdf;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    //  gap: 8px;
+    h6 {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      justify-content: space-between;
+      padding: 8px 0;
+      &:not(:last-child) {
+        border-bottom: 1px solid #e7e7e7;
+      }
+    }
+    b {
+      font-weight: 600;
+    }
+  }
+  .payment_icon {
+    width: 50px;
+    height: 50px;
+    margin: 25px auto;
+    border-radius: 50px;
+    @include flexCenter;
+    svg {
+      flex-shrink: 0;
+    }
+    &.success {
+      color: $green;
+      animation: rippleSuccess 0.6s linear infinite;
+      font-size: 4.5rem;
+    }
+    &.rejected {
+      color: $red;
+      animation: rippleError 0.6s linear infinite;
+      font-size: 5.36rem;
+    }
+    &.pending {
+      background-color: $yellow;
+      color: #fff;
+      animation: ripplePending 0.6s linear infinite;
+      font-size: 5.36rem;
+    }
+  }
+
+  /* ripple effect */
+  @keyframes rippleSuccess {
+    0% {
+      box-shadow: 0 0 0 0 rgba($green, 0.1), 0 0 0 10px rgba($green, 0.1),
+        0 0 0 20px rgba($green, 0.1), 0 0 0 30px rgba($green, 0.1);
+    }
+    100% {
+      box-shadow: 0 0 0 10px rgba($green, 0.1), 0 0 0 20px rgba($green, 0.1),
+        0 0 0 30px rgba($green, 0.1), 0 0 0 40px rgba($green, 0);
+    }
+  }
+  @keyframes rippleError {
+    0% {
+      box-shadow: 0 0 0 0 rgba($red, 0.1), 0 0 0 10px rgba($red, 0.1),
+        0 0 0 20px rgba($red, 0.1), 0 0 0 30px rgba($red, 0.1);
+    }
+    100% {
+      box-shadow: 0 0 0 10px rgba($red, 0.1), 0 0 0 20px rgba($red, 0.1),
+        0 0 0 30px rgba($red, 0.1), 0 0 0 40px rgba($red, 0);
+    }
+  }
+  @keyframes ripplePending {
+    0% {
+      box-shadow: 0 0 0 0 rgba($red, 0.1), 0 0 0 10px rgba($red, 0.1),
+        0 0 0 20px rgba($red, 0.1), 0 0 0 30px rgba($red, 0.1);
+    }
+    100% {
+      box-shadow: 0 0 0 10px rgba($red, 0.1), 0 0 0 20px rgba($red, 0.1),
+        0 0 0 30px rgba($red, 0.1), 0 0 0 40px rgba($red, 0);
+    }
+  }
+}

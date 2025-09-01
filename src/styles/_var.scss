@@ -1,0 +1,100 @@
+// ============ breakPoints ==========
+$xxl: 1399;
+$xl: 1199;
+$tab: 1024;
+$lg: 991;
+$md: 767;
+$sm: 575;
+$xs: 375;
+
+// =================== css variables ===============
+
+// ===== font variables =========
+@mixin fontVariables {
+  --f12: 12px;
+  --f14: 14px;
+  --f15: 15px;
+  --f16: 16px;
+  --f18: 18px;
+  --f20: 20px;
+  --f22: 22px;
+  --f24: 24px;
+  --f30: 30px;
+  --fxl: 58px;
+  @include max($xl) {
+    --f22: 18px;
+    --f24: 20px;
+  }
+  @include max($md) {
+    --f16: 14px;
+    --f18: 16px;
+    --f20: 16px;
+    --f24: 18px;
+    --f30: 24px;
+  }
+}
+
+@mixin min($value) {
+  @media screen and (min-width: (($value + 1)+ "px")) {
+    @content;
+  }
+}
+@mixin max($value) {
+  @media screen and (max-width: ($value + "px")) {
+    @content;
+  }
+}
+@mixin minMax($min, $max) {
+  @media (min-width: ($min + "px")) and (max-width: ($max + "px")) {
+    @content;
+  }
+}
+@mixin noTextSelect {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin absoluteCenterY {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin absoluteCenterX {
+  position: absolute;
+  left: 0;
+  transform: translateX(-50%);
+}
+
+@mixin card {
+  box-shadow: 0 1px 2px rgba(56, 65, 74, 0.15);
+  border-radius: 6px;
+  background-color: var(--white);
+}
+
+@mixin row_col($width, $space, $gap) {
+  --width: #{$width};
+  --space: #{$space};
+  --gap: #{$gap};
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(-1 * var(--space));
+  gap: calc(var(--gap) * var(--space)) 0;
+  @content;
+  > * {
+    padding: 0 var(--space);
+    flex-basis: var(--width);
+    max-width: var(--width);
+  }
+}

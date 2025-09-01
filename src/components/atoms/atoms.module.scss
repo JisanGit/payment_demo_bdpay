@@ -1,0 +1,193 @@
+@import "/src/styles/var";
+
+@keyframes slideTop {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+// ============= dropdown ===========
+.menu_item {
+  padding: 8px 16px;
+  font-size: var(--f14);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: 0.15s linear;
+  &:hover {
+    background-color: var(--bg_page_color);
+  }
+  img {
+    width: 1.4em;
+  }
+  svg {
+    opacity: 0.7;
+    font-size: 1.15em;
+  }
+}
+.menu_root {
+  margin-top: 8px;
+  animation: slideTop 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  .menu_item {
+    min-width: 150px;
+    // font-size: inherit;
+  }
+  ul {
+    font-size: var(--f14);
+    background-color: var(--white);
+  }
+}
+// ========== mui select =============
+.select_root {
+  // width: 100%;
+  // flex-direction: row;
+  font-size: var(--f14);
+  svg {
+    color: currentColor;
+  }
+  img {
+    width: 1.4em;
+  }
+  :global {
+    label {
+      // &:not(.MuiInputLabel-shrink) {
+      //   margin-top: -5px;
+      // }
+    }
+    .MuiInputBase-root {
+      max-height: 38px;
+      background-color: var(--white);
+      font-size: inherit;
+    }
+    .MuiSelect-select {
+      font-size: inherit;
+      padding: 9px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      svg {
+        font-size: 1em;
+      }
+    }
+    .MuiOutlinedInput-notchedOutline {
+      border-color: var(--border_color);
+    }
+  }
+}
+.select_menu {
+  .menu_item {
+    font-size: var(--f14);
+  }
+}
+
+// ================= modal styling ================
+.modal_body {
+  border-radius: 6px;
+  min-height: 100px;
+  background-color: var(--bg_page_color);
+  width: 95%;
+  padding: 6px;
+  position: relative;
+  .heading {
+    h5 {
+      line-height: 1;
+      text-align: center;
+      margin-bottom: 14px;
+      margin-top: 1rem;
+      padding: 0 2rem;
+    }
+  }
+  .modal_content {
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+// ================= Drawer styling ================
+.customDrawer {
+  height: 100vh;
+  overflow-y: auto;
+  :global {
+    .MuiPaper-root {
+      background-color: var(--white);
+    }
+  }
+  .header {
+    background-color: var(--white);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .content {
+    padding: 1rem;
+  }
+}
+
+// ====================== table ======================
+.table {
+  th,
+  td {
+    padding: 12px;
+  }
+  .th_wrap {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    .arrow_wrap {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .icon {
+      line-height: 1;
+      opacity: 0.5;
+      cursor: pointer;
+      padding: 2px;
+      &:hover {
+        opacity: 0.7;
+      }
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}
+// ================ file uploader =================
+.imageBox_wrap {
+  position: relative;
+}
+.fileUploader {
+  min-height: 140px;
+  border: 2px dashed var(--border_color);
+  border-radius: 6px;
+  padding: 10px;
+  background-color: var(--white);
+  transition: 0.15s linear;
+  position: relative;
+  &.isDragging {
+    background-color: var(--bg_page_color);
+    opacity: 0.7;
+  }
+  .close_btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  p {
+    @include absoluteCenter;
+    width: 100%;
+    text-align: center;
+  }
+  img {
+    @include absoluteCenter;
+    max-height: 90%;
+    max-width: 90%;
+    filter: drop-shadow(0px 0px 10px var(--border_color2));
+  }
+}

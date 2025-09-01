@@ -1,0 +1,245 @@
+@import "/src/styles/var";
+
+$green: #4bb543;
+$red: #c53030;
+
+.payment_page {
+  padding: 2rem 0;
+  position: relative;
+  z-index: 1;
+  padding: 3rem 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.steps {
+  --space: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: var(--space);
+  margin-bottom: 2rem;
+  .step {
+    height: 50px;
+    aspect-ratio: 1;
+    @include flexCenter;
+    border-radius: 50%;
+    position: relative;
+    border: 1px solid transparent;
+    &:not(:first-child) {
+      &::before {
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        display: block;
+        width: var(--space);
+        border-bottom: 2px solid var(--border_color2);
+        transition: 0.2s ease;
+      }
+    }
+    &:not(.active) {
+      background-color: var(--white);
+      border-color: var(--border_color2);
+    }
+    &.active {
+      color: #fff;
+      background-color: var(--primary);
+      &::before {
+        border-color: var(--primary);
+      }
+    }
+  }
+}
+.box_container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.payment_form {
+  background-color: var(--primary);
+  border-radius: 2rem;
+  padding: 2rem 3rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0px 0px 30px -12px rgba(0, 0, 0, 0.5);
+  @include max($md) {
+    padding: 1rem 1.25rem;
+  }
+  .logo_wrap {
+    display: flex;
+    justify-content: center;
+  }
+  .logo {
+    @include card;
+    display: inline-flex;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    img {
+      max-height: 40px;
+    }
+  }
+  .detail_box {
+    @include card;
+    padding: 1rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    .detail {
+      display: flex;
+      flex-direction: column;
+      @include min($md) {
+        flex-direction: initial;
+        align-items: center;
+        gap: 10px;
+      }
+      h6 {
+        min-width: 150px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    @include max($md) {
+      gap: 10px;
+    }
+  }
+  .error_card {
+    @include card;
+    padding: 1rem;
+    border-radius: 6px;
+    color: var(--error);
+    font-weight: 600;
+    min-height: 160px;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    @include flexCenter;
+    text-align: center;
+  }
+}
+.step_form {
+  @include card;
+  padding: 1rem;
+  .resend_wrap {
+    padding-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 48px;
+    span {
+      font-size: 14px;
+    }
+    b {
+      font-size: 1.1em;
+    }
+  }
+}
+.form_fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  label {
+    margin-left: 4px;
+    // color: #fff;
+  }
+  :global {
+    .MuiInputBase-root.MuiOutlinedInput-root {
+      border-radius: 10px;
+      max-width: none;
+      .MuiSelect-select {
+        height: 32px;
+        font-size: 1rem;
+      }
+    }
+  }
+  input {
+    font-size: 1rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 30px;
+    border-radius: inherit;
+  }
+}
+.confirm_complete {
+  @include card;
+  p {
+    line-height: 1.35;
+    margin: auto;
+    max-width: 300px;
+  }
+  text-align: center;
+  padding: 1rem;
+}
+.submit_btn {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 1.5rem;
+  button {
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    min-width: 160px;
+  }
+  @include max($sm) {
+    margin-top: 1rem;
+    button {
+      min-width: 100px;
+    }
+  }
+}
+
+.success_box {
+  @include card;
+  text-align: center;
+  padding: 2rem;
+  h4 {
+    font-weight: 600;
+    padding-top: 1rem;
+  }
+  .payment_icon {
+    width: 40px;
+    height: 40px;
+    margin: 20px auto;
+    border-radius: 50px;
+    @include flexCenter;
+    svg {
+      flex-shrink: 0;
+    }
+    &.success {
+      color: $green;
+      animation: rippleSuccess 0.6s linear infinite;
+      font-size: 4.5rem;
+    }
+    &.rejected {
+      color: $red;
+      animation: rippleError 0.6s linear infinite;
+      font-size: 5.36rem;
+    }
+  }
+}
+
+/* ripple effect */
+@keyframes rippleSuccess {
+  0% {
+    box-shadow: 0 0 0 0 rgba($green, 0.1), 0 0 0 10px rgba($green, 0.1),
+      0 0 0 20px rgba($green, 0.1), 0 0 0 30px rgba($green, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba($green, 0.1), 0 0 0 20px rgba($green, 0.1),
+      0 0 0 30px rgba($green, 0.1), 0 0 0 40px rgba($green, 0);
+  }
+}
+@keyframes rippleError {
+  0% {
+    box-shadow: 0 0 0 0 rgba($red, 0.1), 0 0 0 10px rgba($red, 0.1),
+      0 0 0 20px rgba($red, 0.1), 0 0 0 30px rgba($red, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba($red, 0.1), 0 0 0 20px rgba($red, 0.1),
+      0 0 0 30px rgba($red, 0.1), 0 0 0 40px rgba($red, 0);
+  }
+}

@@ -1,1 +1,3 @@
-# payment_demo_bdpay
+node version 20
+npm i
+npm run dev

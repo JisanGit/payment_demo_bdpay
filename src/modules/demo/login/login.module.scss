@@ -1,0 +1,63 @@
+@import "/src/styles/var";
+.login_page {
+  min-height: 100vh;
+  padding: 4rem 0;
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+}
+
+.login_inner {
+  background-color: #fff;
+  display: flex;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0px 0px 30px -5px rgba(0, 0, 0, 0.1);
+
+  .image_wrap,
+  .form_box {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  .image_wrap {
+    @include flexCenter;
+    background-color: #b9b9ff4a;
+    .image {
+      width: 80%;
+      flex-shrink: 0;
+      text-align: center;
+    }
+  }
+  // .divider {
+  //   border-left: 1px solid var(--border_color2);
+  //   border-right: 1px solid var(--border_color2);
+  //   box-shadow: inset 0px 0px 4px -2px rgba(0, 0, 0, 0.1);
+  //   width: 10px;
+  //   flex-shrink: 0;
+  // }
+  .form_box {
+    padding: 1.5rem;
+    @include flexCenter;
+    flex-direction: column;
+    gap: 2rem;
+    h4 {
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.fields_wrap {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  .submit_btn {
+    display: flex;
+    justify-content: center;
+    button {
+      min-width: 120px;
+      font-weight: 700;
+    }
+  }
+}

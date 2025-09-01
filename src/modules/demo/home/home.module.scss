@@ -1,0 +1,68 @@
+@import "src/styles/var";
+
+.page {
+  padding-bottom: 2rem;
+}
+
+.banner {
+  padding: 2rem 0;
+  background-color: var(--bg_page_color);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  .banner_wrap {
+    --width: 45%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    > * {
+      flex-grow: 1;
+      flex-basis: var(--width);
+      max-width: var(--width);
+    }
+    @include max($lg) {
+      flex-wrap: wrap;
+      --width: 100%;
+    }
+  }
+  .banner_content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h1 {
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    p {
+      @include min($md) {
+        font-size: 1.15rem;
+      }
+    }
+  }
+}
+
+.products {
+  padding: 3rem 0;
+  .heading {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    h2 {
+      font-weight: 800;
+    }
+  }
+  .product_list {
+    @include row_col(25%, 1rem, 1.5);
+    @include max($xl) {
+      --width: 33.33%;
+    }
+    @include max($md) {
+      --width: 50%;
+    }
+    @include max($sm) {
+      --width: 100%;
+    }
+  }
+}

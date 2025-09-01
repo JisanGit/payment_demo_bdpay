@@ -1,0 +1,132 @@
+@import "/src/styles/var";
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+::-webkit-scrollbar {
+  width: 6px;
+  transition: 0.1s linear;
+}
+::-webkit-scrollbar-track {
+  background: #f8f8f8;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--grey);
+  border-radius: 10px;
+  height: 100px;
+  &:hover {
+    background: var(--border_color);
+  }
+}
+
+:root {
+  @include fontVariables;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+  body {
+    // @include colorVariables;
+    --error: #c53030;
+    --pending: #ea8e37;
+    --success: #4bb543;
+    --progress: #f74700;
+    --text_color: #878a99;
+
+    --primary: #5339e6;
+    --secondary: #4ee5d8;
+    --grey: #d6d6d6;
+    --bg_theme_color: #fff;
+    --bg_grey_light: #f0f2f5;
+    --heading_dark_color: #101314;
+    --heading_color: #32383d;
+    --border_color: #999999;
+    --border_color1: #e9ebec;
+    --border_color2: #d6d6d6;
+    --white: #fff;
+    --bg_page_color: #f3f3f9;
+    --modal_backdrop: rgba(0, 0, 0, 0.6);
+
+    &.demo {
+      --primary: #0288d1;
+    }
+    color: var(--heading_color);
+    background-color: transparent;
+    * {
+      font-family: "Poppins", sans-serif;
+    }
+    .MuiContainer-root {
+      @include min(1339) {
+        max-width: 1340px;
+      }
+    }
+  }
+  h1,
+  .MuiTypography-h1 {
+    font-size: 60px;
+    line-height: 1.2;
+    @include max($lg) {
+      line-height: 1.26;
+      font-size: 48px;
+    }
+    @include max($md) {
+      font-size: 32px;
+    }
+  }
+  h2,
+  .MuiTypography-h2 {
+    font-size: 32px;
+    @include max($md) {
+      font-size: 28px;
+    }
+  }
+  h3,
+  .MuiTypography-h3 {
+    font-size: 28px;
+    @include max($md) {
+      font-size: 22px;
+    }
+  }
+  h4,
+  .MuiTypography-h4 {
+    font-size: 24px;
+    @include max($md) {
+      font-size: 20px;
+    }
+  }
+  h5,
+  .MuiTypography-h5 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    @include max($sm) {
+      font-size: 16px;
+    }
+  }
+  h6,
+  .MuiTypography-h6 {
+    font-weight: 600;
+    font-size: 16px;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  margin: 0;
+  color: inherit;
+}
+p {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: var(--link_color);
+}

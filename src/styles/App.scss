@@ -1,0 +1,84 @@
+@import "./var";
+@import "./common";
+
+// ============== common input classes =========
+
+label.form_label {
+  display: block;
+  font-size: var(--f14);
+  color: var(--heading_color);
+  font-weight: 600;
+  margin-bottom: 4px;
+  sup {
+    color: var(--error);
+    font-size: 1em;
+    position: absolute;
+    transform: translateY(-4px);
+  }
+}
+
+.direction_rtl {
+  // direction: rtl;
+}
+
+.page_title {
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.inputField_wrap {
+  position: relative;
+}
+.field_error {
+  line-height: 1.1;
+  position: absolute;
+  top: 100%;
+  margin-top: 0.1rem;
+  right: 0;
+  color: var(--error);
+  font-size: 12px;
+}
+
+// ============== theme styling ===========
+.tabs {
+  &.MuiTabs-root {
+    min-height: 2.25rem;
+    border-bottom: 1px solid var(--border_color1);
+    font-family: "Poppins", sans-serif;
+    button {
+      min-height: 30px;
+      text-transform: initial;
+      font-weight: 500;
+    }
+    .MuiTabs-indicator {
+      height: 1px;
+    }
+  }
+}
+
+.filters {
+  --input_width: 250px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 1.5rem;
+  .search_input {
+    flex-basis: var(--input_width);
+  }
+  input {
+    background-color: var(--white);
+  }
+  button {
+    min-height: 38px;
+  }
+}
+
+.photo_viewer {
+  .PhotoView-Slider__Backdrop {
+    background-color: rgba(#000, 0.8) !important;
+  }
+}

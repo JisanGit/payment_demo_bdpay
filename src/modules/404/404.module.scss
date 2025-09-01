@@ -1,0 +1,18 @@
+@import "/src/styles/var";
+
+.not_found {
+  min-height: calc(100vh - var(--topBar_height));
+  @include flexCenter;
+  flex-direction: column;
+  img {
+    max-width: 500px;
+  }
+  h1 {
+    line-height: 1;
+    // font-size: clamp(80px, 13vw, 150px);
+    font-weight: 600;
+  }
+  p {
+    font-size: var(--f20);
+  }
+}
