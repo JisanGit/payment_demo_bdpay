@@ -79,7 +79,7 @@ const DemoLayout = ({ children }) => {
         callback_url: `${window.location.origin}/payment-status`,
       });
       if (res?.success) {
-        window.open(res?.payorio_url, "_blank");
+        window.open(res?.bdpay_url, "_blank");
         window.location.reload();
       } else {
         toast.error(res?.error_message);
@@ -97,7 +97,8 @@ const DemoLayout = ({ children }) => {
       callback_url: `${window.location.origin}/payment-status`,
     });
     if (res?.success) {
-      window.open(res?.payorio_url, "_blank");
+      console.log(res);
+      window.open(res?.bdpay_url, "_blank");
       window.location.reload();
     } else {
       toast.error(res?.error_message);
